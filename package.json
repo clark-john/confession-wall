@@ -1,18 +1,36 @@
 {
-  "name": "empty",
-  "description": "An empty schema with no models, to build your own your own schema",
-  "license": "UNLICENSED",
+  "name": "confession-wall",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "@prisma/client": "4.0.0"
+    "@prisma/client": "^4.1.0",
+    "uikit": "^3.15.1",
+    "vue": "^3.2.25",
+    "vue-router": "^4.1.2"
   },
   "devDependencies": {
-    "@types/node": "17.0.21",
-    "prisma": "4.0.0",
-    "ts-node": "10.5.0",
-    "typescript": "4.5.5"
-  },
-  "scripts": {
-    "dev": "ts-node ./sandbox.ts",
-    "build": "prisma generate --data-proxy"
+    "@types/uikit": "^3.14.0",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "autoprefixer": "^10.4.7",
+    "cssnano": "^5.1.12",
+    "postcss": "^8.4.14",
+    "postcss-define-function": "^0.1.2",
+    "postcss-font-magician": "^3.0.0",
+    "postcss-modules": "^4.3.1",
+    "postcss-nested": "^5.0.6",
+    "postcss-sassy-mixins": "^2.1.0",
+    "postcss-simple-vars": "^6.0.3",
+    "postcss-uncss": "^0.17.0",
+    "prisma": "^4.1.0",
+    "typescript": "^4.7.4",
+    "uncss": "^0.17.3",
+    "vite": "^2.9.5",
+    "vite-plugin-minify": "^1.4.3",
+    "vue-tsc": "^0.34.7"
   }
 }

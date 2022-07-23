@@ -1,0 +1,13 @@
+.uk-modal-body {
+  border-radius: 10px;
+}
+
+/* Dark */
+body.dark {
+  .uk-modal-body {
+    background-color: #131313;
+    & > * {
+      color: white;
+    }
+  }
+}

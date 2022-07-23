@@ -1,0 +1,23 @@
+.main {
+  padding: 10px;
+  text-align: center;
+}
+.content, .stack {
+  margin-top: 10px;
+  margin-bottom: 4rem;
+  color: #000;
+} 
+.about-title {
+  color: black;
+}
+
+.no-underline {
+  text-decoration: none !important;
+}
+
+/* dark */
+body.dark {
+  .about-title {
+    color: #a1a1a1;
+  }
+}
