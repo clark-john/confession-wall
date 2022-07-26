@@ -37,6 +37,7 @@ $button-padding: 10px 30px;
     gap: 20px
   }
 }
+
 .h2 {
   font-size: 24px;
   margin: 20px 0;
@@ -61,8 +62,14 @@ button.switch-theme {
   @include onhover-link(black);
 }
 
-body.dark {
-  .h2, div {
+@media screen and (max-width: 430px) {
+  .nav {
+    display: grid;
+  }
+}
+
+html.dark {
+  .h2 {
     color: white !important;
   }
   .about {

@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import App from './App.vue'
 
-import './globals.css'
+import './globals.scss'
 
 import 'uikit/dist/css/uikit.min.css'
 

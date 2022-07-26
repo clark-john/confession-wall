@@ -3,34 +3,28 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
+    "type-check": "vue-tsc --noEmit",
+    "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
+    "build-only": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@prisma/client": "^4.1.0",
     "uikit": "^3.15.1",
-    "vue": "^3.2.25",
+    "vue": "^3.2.37",
     "vue-router": "^4.1.2"
   },
   "devDependencies": {
+    "@types/chroma-js": "^2.1.4",
+    "@types/node": "^18.6.1",
     "@types/uikit": "^3.14.0",
     "@vitejs/plugin-vue": "^2.3.1",
-    "autoprefixer": "^10.4.7",
-    "cssnano": "^5.1.12",
-    "postcss": "^8.4.14",
-    "postcss-define-function": "^0.1.2",
-    "postcss-font-magician": "^3.0.0",
-    "postcss-modules": "^4.3.1",
-    "postcss-nested": "^5.0.6",
-    "postcss-sassy-mixins": "^2.1.0",
-    "postcss-simple-vars": "^6.0.3",
-    "postcss-uncss": "^0.17.0",
+    "chroma-js": "^2.4.2",
     "prisma": "^4.1.0",
+    "sass": "^1.54.0",
     "typescript": "^4.7.4",
-    "uncss": "^0.17.3",
     "vite": "^2.9.5",
-    "vite-plugin-minify": "^1.4.3",
-    "vue-tsc": "^0.34.7"
+    "vue-tsc": "^0.39.0"
   }
 }

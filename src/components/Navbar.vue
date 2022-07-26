@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 import Modal from './Modal.vue';
 
-import '@/styles/navbar.css'
+import '@/styles/navbar.scss'
 
 </script>
 
@@ -30,7 +30,7 @@ export default defineComponent({
 	name: "Navbar",
 	created(){
 		if (this.isDark) {
-			this.body.classList.add("dark")
+			this.body?.classList.add("dark")
 		}
 		window.addEventListener('unload', () => {
 			saveTheme(this.isDark as boolean)
@@ -39,7 +39,7 @@ export default defineComponent({
 	data() {
 		return {
 			isDark: getTheme() == null ? false : getTheme(),
-			body: document.body
+			body: document.querySelector("html")
 		}
 	},
 	methods: {

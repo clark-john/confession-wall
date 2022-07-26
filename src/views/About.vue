@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { defineComponent } from "vue";
-import '@/styles/about.css'
+import '@/styles/about.scss'
 </script>
 
 <template>

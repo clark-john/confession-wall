@@ -5,7 +5,6 @@
 .content, .stack {
   margin-top: 10px;
   margin-bottom: 4rem;
-  color: #000;
 } 
 .about-title {
   color: black;
@@ -16,8 +15,11 @@
 }
 
 /* dark */
-body.dark {
+html.dark {
   .about-title {
     color: #a1a1a1;
+  }
+  .stack, .content {
+    color: white;
   }
 }

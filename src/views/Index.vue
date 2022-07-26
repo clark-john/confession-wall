@@ -7,9 +7,9 @@ import ConfessionsContainer from '../components/ConfessionsContainer.vue';
 <template>	
 	<div>
 		<ConfessionsContainer>
-			<Confession />
-			<Confession />
-			<Confession />
+			<div v-for="x in new Array(30)">
+				<Confession />
+			</div>				
 		</ConfessionsContainer>
 	</div>
 </template>

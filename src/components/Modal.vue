@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import '@/styles/modal.css'
+import '@/styles/modal.scss'
 import { defineComponent } from "vue";
 
 export default defineComponent({
