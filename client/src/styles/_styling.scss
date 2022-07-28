@@ -1,0 +1,13 @@
+@use "sass:color";
+
+@mixin button-style($color) {
+  border-style: none;
+  padding: 10px 30px; 
+  border-radius: 7px;
+  background-color: $color;
+  @if color.lightness($color) < 51% {
+    color: white;
+  } @else {
+    color: black;
+  }
+}

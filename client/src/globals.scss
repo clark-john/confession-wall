@@ -1,3 +1,5 @@
+@use "styles/scrollbar";
+@use "styles/colors" as c;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -8,10 +10,10 @@
 html {
 	padding: 0;
 	margin: 0;
-	background: rgb(255, 250, 235) !important;
+	background: c.$light-bg-color !important;
 }	
 html.dark {
-	background: #131313 !important;
+	background: c.$dark-bg-color !important;
 };
 
 

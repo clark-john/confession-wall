@@ -1,0 +1,22 @@
+@use "colors" as c;
+
+::-webkit-scrollbar {
+	width: 10px;
+	background-color: darken(c.$light-bg-color, 5%);;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	width: 10px;
+	background-color: #555;
+	border-radius: 10px;
+}
+
+html.dark {
+	::-webkit-scrollbar {
+		background-color: darken(c.$dark-bg-color, 2%);
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: white;
+	}
+}

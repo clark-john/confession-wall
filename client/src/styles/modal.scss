@@ -1,0 +1,64 @@
+@use "styling" as s;
+@use "animations" as an;
+
+.uk-modal-body {
+  border-radius: 10px;
+}
+
+.uk-input, textarea {
+  border-radius: 12px !important;
+  border: 0.5px solid #aaa !important;
+  color: #000 !important;
+}
+
+label {
+  color: #000;
+}
+
+textarea {
+  padding: 0;
+}
+
+.input-label {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+button {
+  @include s.button-style(#0188fe);
+  @include an.button-animation;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.input-checkbox {
+  display: flex;
+  gap: 6px;  
+}
+
+.uk-input:disabled {
+  opacity: 20%;
+  border-style: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Dark */
+html.dark {
+  .uk-modal-body {
+    background-color: #131313;
+    & > * {
+      color: white;
+    }
+  }
+  label {
+    color: white;
+  }
+}

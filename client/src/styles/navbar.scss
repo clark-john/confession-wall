@@ -1,0 +1,60 @@
+@use "animations" as an;
+@use "styling" as s;
+
+
+
+.nav {
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3rem;
+  align-items: center;
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px
+  }
+}
+
+.h2 {
+  font-size: 24px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+.link {
+  text-decoration: none !important;
+  &:any-link {
+    color: black
+  }
+}
+button.create {
+  @include s.button-style(rgb(0, 158, 255));
+  @include an.button-animation;
+}
+
+button.switch-theme {
+  @include s.button-style(white);
+  @include an.button-animation;
+}
+
+.about {
+  @include an.onhover-link(black);
+}
+
+@media screen and (max-width: 430px) {
+  .nav {
+    display: grid;
+  }
+}
+
+html.dark {
+  .h2 {
+    color: white !important;
+  }
+  .about {
+    @include an.onhover-link(yellow);
+  }
+  .link {
+    color: white !important;    
+  }
+}

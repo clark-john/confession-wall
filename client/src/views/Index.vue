@@ -7,8 +7,9 @@ import ConfessionsContainer from '../components/ConfessionsContainer.vue';
 <template>	
 	<div>
 		<ConfessionsContainer>
-			<div v-for="x in new Array(30)">
-				<Confession />
+			<Confession title="Clark" content="Ibig kong kumanta ng kundiman :D" :withWebsteLink="true" websiteName="Clark" websiteLink="https://clark-john.github.io" />
+			<div v-for="x in new Array(41)">
+				<Confession title="clark lng sakalam" content="sdakmflsnjnmdjksdnj" />
 			</div>				
 		</ConfessionsContainer>
 	</div>

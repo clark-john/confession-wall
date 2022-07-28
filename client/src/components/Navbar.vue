@@ -18,13 +18,13 @@ import '@/styles/navbar.scss'
 				{{ !isDark ? "Dark" : "Light" }}
 			</button>
 		</div>
-		<Modal id="modal-create" uk-modal />
+		<Modal />
 	</div>
 </template>
 
 <script lang="ts">
-import UIkit from 'uikit'
 import { saveTheme, getTheme } from '@/utils/themeLocalStorage'
+import { openModal } from './Modal.vue'
 
 export default defineComponent({
 	name: "Navbar",
@@ -44,7 +44,7 @@ export default defineComponent({
 	},
 	methods: {
 		showModal(){
-			UIkit.modal("#modal-create").show()
+			openModal()
 		},
 		switchTheme(){
 			const el = this.body

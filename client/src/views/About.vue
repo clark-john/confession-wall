@@ -14,7 +14,7 @@ import '@/styles/about.scss'
 				<div>
 					<li>Prisma</li>
 					<li>Vite</li>
-					<li>PostCSS</li>
+					<li>SCSS</li>
 					<li>Vue</li>
 				</div>
 			</div>

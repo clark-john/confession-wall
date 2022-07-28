@@ -1,0 +1,32 @@
+// Mixin for Button Animation
+
+@mixin button-animation {
+	filter: brightness(1);
+	transition: filter 200ms, transform 20ms;			
+	&:hover {
+		filter: brightness(.5);		
+	}
+	&:active {
+		filter: brightness(.75);
+		transform: translateY(4px);
+	}
+}
+
+// Mixin for Link hover
+@mixin onhover-link($color) {
+  position: relative;
+  text-decoration: none !important;
+  &::after {
+    content: '';
+    bottom: 0;
+    left: 0;
+    height: 1.5px;
+    width: 0%;
+    background-color: $color;  
+    position: absolute;
+    transition: width 200ms;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}

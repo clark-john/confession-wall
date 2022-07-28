@@ -1,0 +1,14 @@
+
+.main {
+  width: 100%;
+  border-radius: 19px;
+  padding: 20px;
+}
+
+.website-link {
+  display: flex;
+  gap: 3px;
+}
+
+.invert { filter: invert(1) }
+.uninvert { filter: invert(0) }
