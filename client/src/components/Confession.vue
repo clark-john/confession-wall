@@ -4,10 +4,10 @@
     <div>
       {{ content }}
     </div>
-    <div v-if="withWebsteLink" class="website-link">
-      <img :src="globeSvg" alt="" :class="checkLightness(randomColor).isDark ? 'invert' : 'uninvert'">
-      <a :href="websiteLink" :style="titleStyle" target="_blank"> {{ websiteName }} </a>
-    </div>
+    <a :href="websiteLink" :style="titleStyle" target="_blank" v-if="withWebsteLink" class="website-link">
+      <img :src="globeSvg" alt="globe" :class="checkLightness(randomColor).isDark ? 'invert' : 'uninvert'">
+       {{ websiteName }}
+    </a>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default defineComponent({
   },
   methods: {
     checkLightness(int: number) {
-      if (int < 0.5) {
+      if (int < 0.42) {
         return {
           color: "white",
           isDark: true

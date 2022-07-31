@@ -2,7 +2,7 @@
 
 @mixin button-animation {
 	filter: brightness(1);
-	transition: filter 200ms, transform 20ms;			
+	transition: filter 150ms, transform 20ms;			
 	&:hover {
 		filter: brightness(.5);		
 	}

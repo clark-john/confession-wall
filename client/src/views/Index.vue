@@ -17,7 +17,8 @@ import ConfessionsContainer from '../components/ConfessionsContainer.vue';
 
 <script lang="ts">
 export default defineComponent({
-	methods: {
+	created(){
+		document.title = "Confession Wall"
 	}
 })
 </script>

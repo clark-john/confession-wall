@@ -4,7 +4,7 @@ import '@/styles/about.scss'
 </script>
 
 <template>
-	<div class="main">
+	<div class="about-main">
 		<h3 class="about-title">About Confession Wall</h3>
 		<div class="content">
 			Personal project

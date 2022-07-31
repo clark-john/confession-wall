@@ -7,7 +7,15 @@
 
 .website-link {
   display: flex;
-  gap: 3px;
+  width: fit-content;
+  padding: 5px 10px;
+  gap: 5px;
+  border-radius: 10px;
+  transition: transform 100ms;
+  text-decoration: none !important;
+}
+.website-link:hover {
+  transform: scale(1.1);
 }
 
 .invert { filter: invert(1) }

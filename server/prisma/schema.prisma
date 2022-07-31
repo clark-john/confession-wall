@@ -11,10 +11,10 @@ generator client {
 
 model Confession {
   id Int @id @default(autoincrement())   
-  title String
-  content String
-  color String
+  title String @db.VarChar(100)
+  content String @db.VarChar(500)
+  color String @db.VarChar(30)
   withWebsteLink Boolean
-  websiteName String?
-  websiteLink String?
+  websiteName String? @db.VarChar(100)
+  websiteLink String? @db.VarChar(300)
 }
