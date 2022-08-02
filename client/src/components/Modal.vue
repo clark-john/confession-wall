@@ -34,14 +34,14 @@
         </div>
         <div class="input">
           <label for="websiteName" class="input-label">Website Name</label>
-          <input type="text" class="uk-input optional" name="websiteName" disabled placeholder="Put your website name" v-model="websiteName">           
+          <input type="text" class="uk-input optional" name="websiteName" disabled required placeholder="Put your website name" v-model="websiteName">           
         </div>
         <div class="input">
           <label for="websiteLink" class="input-label">Website Link</label>
-          <input type="text" class="uk-input optional" name="websiteLink" disabled placeholder="Put your website link" v-model="websiteLink">
+          <input type="text" class="uk-input optional" name="websiteLink" disabled required placeholder="Put your website link" v-model="websiteLink">
           <span class="error"> {{ linkOnError }} </span>           
         </div>
-        <button type="submit">Create Confession</button>
+        <button type="submit"> {{ !isCreating ? "Create Confession" : "Creating..." }} </button>
       </form> 
     </div>
   </div>
@@ -80,7 +80,8 @@ export default defineComponent({
       titleRequired: "",
       contentRequired: "",
       isLinkValidated: false,
-      linkOnError: ""
+      linkOnError: "",
+      isCreating: false
     }
   },
   methods: {
@@ -110,13 +111,8 @@ export default defineComponent({
     },
     async submitForm(e: any){
       e.preventDefault()
+      this.isCreating = true
       if ((this?.title != "" && !containsOnlySpaces(this.title)) && (this.content != "" && !containsOnlySpaces(this.content))) {      
-        await createConfession({
-          title: this.title,
-          content: this.content,
-          color: randomColor(),
-          withWebsteLink: this.withWebsteLink
-        })
         if (this.withWebsteLink) {
           await createConfession({
             title: this.title,
@@ -126,7 +122,15 @@ export default defineComponent({
             websiteName: this.websiteName,
             websiteLink: this.websiteLink
           })
+        } else {        
+          await createConfession({
+            title: this.title,
+            content: this.content,
+            color: randomColor(),
+            withWebsteLink: this.withWebsteLink
+          })
         }
+        this.isCreating = false
         UIkit.modal("#modal-create").hide()
       } else {
         this.validateTitle()

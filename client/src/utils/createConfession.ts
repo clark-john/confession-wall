@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getConfessions } from './getConfessions'
 
 interface ConfessionData {
 	title: string;
@@ -18,4 +19,5 @@ export const createConfession = async (data: ConfessionData) => {
 		websiteName: data.withWebsteLink ? data.websiteName : null,
 		websiteLink: data.withWebsteLink ? data.websiteLink : null
 	})
+	document.location.reload()
 }

@@ -7,10 +7,11 @@ import './globals.scss'
 import 'uikit/dist/css/uikit.min.css'
 
 const routes: RouteRecordRaw[] = [
-	{ path: '/welcome', component: () => import("./views/Welcome.vue") },
-	{ path: '/', redirect: '/welcome'},
+	// { path: '/welcome', component: () => import("./views/Welcome.vue") },
+	{ path: '/', redirect: '/home'},
 	{ path: '/home', component: () => import("./views/Index.vue") },	
 	{ path: '/about', component: () => import("./views/About.vue") },
+	{ path: '/:pathMatch(.*)*', component: () => import("./views/NotFound.vue") }
 ]
 
 const router = createRouter({

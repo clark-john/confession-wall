@@ -9,11 +9,13 @@ import '@/styles/navbar.scss'
 <template>
 	<div class="nav">
 		<router-link to="/" class="link"><div class="h2">Confession Wall</div></router-link>
-		<router-link to="/about" class="about link" v-if="// @ts-ignore
-		this.$route.fullPath != '/welcome'">About</router-link>
+		<router-link to="/about" class="about link">
+			<!-- v-if="// @ts-ignore this.$route.fullPath != '/welcome'" -->
+			About
+		</router-link>
 		<div class="nav-right">
-			<button class="create" @click="showModal" v-if="// @ts-ignore
-			this?.$route.fullPath != '/welcome'">Create</button>
+			<!-- v-if="this?.$route.fullPath != '/welcome'" -->
+			<button class="create" @click="showModal">Create</button>
 			<button @click="switchTheme" class="switch-theme">
 				{{ !isDark ? "Dark" : "Light" }}
 			</button>

@@ -19,10 +19,13 @@ app.get('/', async (req: Request, res: Response) => {
 	res.send("Hello World")
 })
 
-app.post('/create', (req: Request, res: Response) => {
-	console.log(req.body) 
+app.post('/create', async (req: Request, res: Response) => {
+	await confman.create(req.body)
 	res.end()
-	// res.sendStatus(401)
+})
+
+app.get('/confessions', async (req: Request, res: Response) => {
+	res.send(await confman.getConfessions())
 })
 
 app.listen(port, () => {

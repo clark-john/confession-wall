@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import { autoIncrement } from './autoIncrement'
 import { ConfessionData } from './interfaces'
  
 export class ConfessionsManager {
@@ -10,6 +11,7 @@ export class ConfessionsManager {
 		if (data.withWebsteLink) {
 			await this.prisma.confession.create({
 				data: {
+					id: await autoIncrement(),
 					title: data.title,
 					content: data.content,
 					color: data.color,
@@ -22,6 +24,7 @@ export class ConfessionsManager {
 		else {
 			await this.prisma.confession.create({
 				data: {
+					id: await autoIncrement(),
 					title: data.title,
 					content: data.content,
 					color: data.color,

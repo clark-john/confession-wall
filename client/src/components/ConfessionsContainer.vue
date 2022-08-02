@@ -7,7 +7,7 @@
 <style scoped lang="scss">
 div {
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: 30% 30% 30%;
   display: grid;
   margin-top: 1.5rem;

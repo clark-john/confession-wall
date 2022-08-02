@@ -1,24 +1,30 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import Confession from '@/components/Confession.vue';
 import ConfessionsContainer from '../components/ConfessionsContainer.vue';
+import { getConfessions } from '@/utils/getConfessions' 
+import { useTitle } from '@vueuse/core'
+import { ref, onMounted } from 'vue'
+
+let confessions: any = ref(new Array())
+onMounted(async () => {
+	useTitle("Confession Wall")
+	confessions.value = (await getConfessions()).reverse()
+})
 </script>
 
 <template>	
 	<div>
 		<ConfessionsContainer>
-			<Confession title="Clark" content="Ibig kong kumanta ng kundiman :D" :withWebsteLink="true" websiteName="Clark" websiteLink="https://clark-john.github.io" />
-			<div v-for="x in new Array(41)">
-				<Confession title="clark lng sakalam" content="sdakmflsnjnmdjksdnj" />
-			</div>				
+			<div v-for="x in confessions">
+				<Confession 
+					:title="x.title" 
+					:content="x.content" 
+					:color="x.color"
+					:withWebsteLink="x.withWebsteLink" 
+					:websiteName="x.websiteName" 
+					:websiteLink="x.websiteLink" 
+				/>
+			</div>
 		</ConfessionsContainer>
 	</div>
 </template>
-
-<script lang="ts">
-export default defineComponent({
-	created(){
-		document.title = "Confession Wall"
-	}
-})
-</script>

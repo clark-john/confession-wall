@@ -10,7 +10,7 @@ generator client {
 }
 
 model Confession {
-  id Int @id @default(autoincrement())   
+  id Int @unique
   title String @db.VarChar(100)
   content String @db.VarChar(500)
   color String @db.VarChar(30)

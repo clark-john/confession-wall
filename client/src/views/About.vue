@@ -1,6 +1,12 @@
 <script lang="ts" setup>
-import { defineComponent } from "vue";
 import '@/styles/about.scss'
+import { onMounted } from "vue"
+import { useTitle } from '@vueuse/core'
+
+onMounted(() => {
+	useTitle("About")
+})
+
 </script>
 
 <template>
@@ -18,17 +24,12 @@ import '@/styles/about.scss'
 					<li>Vue</li>
 				</div>
 			</div>
+			<div style="margin-bottom: 2rem;">
+				Email: <a href="mailto:daprogrammer1@gmail.com">Clark</a>
+			</div>
 			<div>
 				Back to <router-link to="/home" class="no-underline">Confession Wall</router-link>
 			</div>
 		</div>
 	</div>
 </template>
-
-<script lang="ts">
-export default defineComponent({
-	created(){
-		document.title = "About - Confession Wall"
-	}
-})
-</script>
