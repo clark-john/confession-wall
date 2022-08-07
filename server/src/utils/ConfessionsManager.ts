@@ -15,7 +15,7 @@ export class ConfessionsManager {
 					title: data.title,
 					content: data.content,
 					color: data.color,
-					withWebsteLink: data.withWebsteLink,
+					withWebsite: data.withWebsite,
 					websiteName: data.websiteName,
 					websiteLink: data.websiteLink
 				}
@@ -28,7 +28,7 @@ export class ConfessionsManager {
 					title: data.title,
 					content: data.content,
 					color: data.color,
-					withWebsteLink: data.withWebsteLink,
+					withWebsiteLink: data.withWebsite,
 				}
 			})		
 		}

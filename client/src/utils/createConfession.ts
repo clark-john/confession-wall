@@ -15,9 +15,9 @@ export const createConfession = async (data: ConfessionData) => {
 		title: data.title,
 		content: data.content,
 		color: data.color,
-		withWebsteLink: data.withWebsteLink,
-		websiteName: data.withWebsteLink ? data.websiteName : null,
-		websiteLink: data.withWebsteLink ? data.websiteLink : null
+		withWebsite: data.withWebsite,
+		websiteName: data.withWebsite ? data.websiteName : null,
+		websiteLink: data.withWebsite ? data.websiteLink : null
 	})
 	document.location.reload()
 }

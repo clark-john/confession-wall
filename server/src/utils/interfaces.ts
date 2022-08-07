@@ -2,7 +2,7 @@ export interface ConfessionData {
 	title: string;
 	content: string;
 	color: string;
-	withWebsteLink: boolean;
+	withWebsite: boolean;
 	websiteName?: string;
 	websiteLink?: string;
 }

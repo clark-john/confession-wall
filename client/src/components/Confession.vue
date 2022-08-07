@@ -4,7 +4,7 @@
     <div>
       {{ content }}
     </div>
-    <a :href="websiteLink" :style="titleStyle" target="_blank" v-if="withWebsteLink" class="website-link">
+    <a :href="websiteLink" :style="titleStyle" target="_blank" v-if="withWebsite" class="website-link">
       <img :src="globeSvg" alt="globe">
        {{ websiteName }}
     </a>
@@ -22,7 +22,7 @@ export default defineComponent({
     title: String,
     content: String,
     color: String,
-    withWebsteLink: Boolean,
+    withWebsite: Boolean,
     websiteName: String,
     websiteLink: String
   },

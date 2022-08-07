@@ -1,5 +1,5 @@
 <template>
-  <div id="modal-create" uk-modal>
+  <div class="modal-create" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
       <h2 class="uk-modal-title">Create Confession</h2>
       <form @submit="submitForm">
@@ -29,8 +29,8 @@
           <span class="error">{{ contentRequired }} </span>
         </div>
         <div class="input-checkbox">
-          <input type="checkbox" name="withWebsteLink" v-model="withWebsteLink" @change="disableOptionalInputs">
-          <label for="withWebsteLink">With website link?</label>
+          <input type="checkbox" name="withWebsite" v-model="withWebsite" @change="disableOptionalInputs">
+          <label for="withWebsitLink">With website link?</label>
         </div>
         <div class="input">
           <label for="websiteName" class="input-label">Website Name</label>
@@ -56,7 +56,7 @@ import { createConfession } from "@/utils/createConfession"
 import { randomColor } from '@/utils/randomColor'
 
 export function openModal() {
-  UIkit.modal("#modal-create").show()
+  UIkit.modal(".modal-create").show()
   // @ts-ignore
   document.querySelector("#modal-create").scrollTo(0,0)
   // @ts-ignore
@@ -74,7 +74,7 @@ export default defineComponent({
     return {
       title: "",
       content: "",
-      withWebsteLink: false,
+      withWebsite: false,
       websiteName: "",
       websiteLink: "",
       titleRequired: "",
@@ -88,7 +88,7 @@ export default defineComponent({
     backToDefault() {
       this.title = ""
       this.content = ""
-      this.withWebsteLink = false
+      this.withWebsite = false
       this.websiteLink = ""
     },
     validateTitle(){
@@ -113,12 +113,12 @@ export default defineComponent({
       e.preventDefault()
       this.isCreating = true
       if ((this?.title != "" && !containsOnlySpaces(this.title)) && (this.content != "" && !containsOnlySpaces(this.content))) {      
-        if (this.withWebsteLink) {
+        if (this.withWebsite) {
           await createConfession({
             title: this.title,
             content: this.content,
             color: randomColor(),
-            withWebsteLink: this.withWebsteLink,
+            withWebsite: this.withWebsite,
             websiteName: this.websiteName,
             websiteLink: this.websiteLink
           })
@@ -127,7 +127,7 @@ export default defineComponent({
             title: this.title,
             content: this.content,
             color: randomColor(),
-            withWebsteLink: this.withWebsteLink
+            withWebsite: this.withWebsite
           })
         }
         this.isCreating = false
@@ -140,7 +140,7 @@ export default defineComponent({
     },
     disableOptionalInputs(){
       const nodes = document.querySelectorAll(".optional")
-      if (!this?.withWebsteLink) {
+      if (!this?.withWebsite) {
         nodes.forEach(x => {
           x.setAttribute("disabled", "")
         })                
