@@ -1,0 +1,36 @@
+{
+  "name": "confession-wall",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier -w ./components/**/*.tsx ./pages/**/*.tsx"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.2.6",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@prisma/client": "^4.1.1",
+    "chroma-js": "^2.4.2",
+    "formik": "^2.2.9",
+    "framer-motion": "^7.0.0",
+    "next": "^12.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/chroma-js": "^2.1.4",
+    "@types/node": "18.6.4",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.21.0",
+    "eslint-config-next": "12.2.4",
+    "prettier": "^2.7.1",
+    "prisma": "^4.1.1",
+    "sass": "^1.54.3",
+    "typescript": "4.7.4"
+  }
+}

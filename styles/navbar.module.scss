@@ -1,0 +1,33 @@
+@use "animations" as an;
+@use "styling" as s;
+@use "colors";
+
+.h2 {
+  font-size: 24px;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #000;
+}
+
+.link {
+  text-decoration: none !important;
+  &:any-link {
+    color: black
+  }
+}
+
+.aboutlink {
+  color: #000 !important;
+  @include an.onhover-link(black);
+  text-decoration: none !important;
+}
+
+/*@media (prefers-color-scheme: dark) {
+  .h2 {
+    color: white !important;
+  }
+  .aboutlink {
+    color: white !important;
+    @include an.onhover-link(yellow);
+  }
+}*/
