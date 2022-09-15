@@ -6,7 +6,7 @@ import { ConfessionData } from 'utils/interfaces';
 
 export const Confession: React.FC<ConfessionData> = ({ title, content, color, withWebsite, websiteLink, websiteName }) => (
 	<Stack>
-		<Grid bg={color} borderRadius={20} pt={3} pb={5} px={6} gap={3} color={chroma(color).hsv()[2] < 0.5 ? 'white' : 'black'}>
+		<Grid bg={color} borderRadius={20} pt={3} pb={5} px={6} gap={3} color={chroma(color).hsv()[2] < 0.5 ? 'white' : 'black'} flexWrap="wrap">
 			<Box pt={2} fontSize='1.5rem'> {title} </Box>
 			<Box>
 				{content}

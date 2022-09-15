@@ -1,8 +1,12 @@
 import { Confession } from './Confession';
-import { Container, Grid, Box } from '@chakra-ui/react';
+import { Container, Grid, Box, useMediaQuery } from '@chakra-ui/react';
+import { ConfessionData } from 'utils/interfaces';
 import React from 'react';
 
-export const ConfessionsContainer: React.FC<any> = ({ confessionsArray }) => {
+type Confessions = { confessionsArray: Array<ConfessionData> }
+
+export const ConfessionsContainer: React.FC<Confessions> = ({ confessionsArray }) => {
+	const [isMobile] = useMediaQuery("(max-width: 463px)");
 	const confessions = confessionsArray.map((conf: any) => {
 		return (
 			<div key={conf.id}>
@@ -20,9 +24,10 @@ export const ConfessionsContainer: React.FC<any> = ({ confessionsArray }) => {
 	return (
 		<Box mt={5}>
 			<Grid 
-				templateColumns='repeat(3, 30%)' 
+				templateColumns={`repeat(${isMobile ? "1, 100%" : "3, 30%"})`} 
 				gap={7} 
 				justifyContent='center'
+				mx={10}
 			>
 				{confessions.reverse()}
 			</Grid>

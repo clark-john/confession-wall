@@ -23,8 +23,9 @@ import { Formik, Field } from "formik";
 import { isSpacesOnly } from "utils/isSpacesOnly";
 import axios from 'axios';
 
-// @ts-ignore
-export const ConfessionModal: React.FC<any> = ({ isOpen, onClose }) => {
+type ModalProps = { isOpen: boolean, onClose: () => void };
+
+export const ConfessionModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [withWebsite, toggleWithWebsite] = useState<boolean>(false);
   const [isSubmitting, setSubmitting] = useState<boolean>(false);
 
@@ -42,14 +43,14 @@ export const ConfessionModal: React.FC<any> = ({ isOpen, onClose }) => {
           }}
           onSubmit={async values => {
             setSubmitting(x => x = true);
-            const res = await axios({
-              url: "http://localhost:3000/api/create",
+            await axios({
+              url: "api/create",
               method: "POST",
               headers: {
                 'Content-Type': 'application/json'
               },
               data: JSON.stringify(values)
-            });
+            }).catch(err => console.log(err));
             setSubmitting(x => x = false);
             onClose();
             document.location.reload();

@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Box, Button, Flex, useDisclosure } from "@chakra-ui/react";
+import { 
+  Box, 
+  Button, 
+  Flex, 
+  useDisclosure,
+  useMediaQuery
+} from "@chakra-ui/react";
 import navbar from "styles/navbar.module.scss";
 import { ConfessionModal } from "components/Modal";
 
@@ -8,11 +14,20 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const isWelcomePage = (path: string): boolean => path === "/welcome";
+  const [isMobile] = useMediaQuery("(max-width: 380px)");
+  const [breakpoint1] = useMediaQuery("(max-width: 625px)");
 
   return (
     <Box>
       <Flex
-        mx="calc(3rem + 30px)"
+      // @ts-ignore
+        mx={() => {
+          switch (true) {
+            case isMobile: return "1rem";
+            case breakpoint1: return "2rem";
+            default: return "9rem";
+          }
+        }}
         justifyContent="space-between"
         alignItems="center"
       >
@@ -27,6 +42,7 @@ const Navbar = () => {
             className={navbar.aboutlink}
           // @ts-ignore
             visibility={isWelcomePage(router.pathname) ? "hidden" : ""}
+            mr={isMobile ? 7 : 0}
           >
             About
           </Box>

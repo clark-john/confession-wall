@@ -27,7 +27,7 @@ export default async function handler(
         websiteLink   
       }
     });
-    res.status(200).json(JSON.stringify({ statusText: "OK" }));
+    res.status(200).send("OK");
   } catch(e) {
     throw e;
     // res.status(400).send("Error")
