@@ -42,7 +42,6 @@ export const ConfessionModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             websiteLink: ""
           }}
           onSubmit={async values => {
-            alert(JSON.stringify(values, null, 2));
             setSubmitting(x => x = true);
             await axios({
               url: "api/create",

@@ -5,7 +5,7 @@ import chroma from 'chroma-js';
 import { ConfessionData } from 'utils/interfaces';
 
 export const Confession: React.FC<ConfessionData> = ({ title, content, color, withWebsite, websiteLink, websiteName }) => {
-	const isDark = chroma(color).hsv()[2] < 0.7;
+	const isDark = chroma(color).hsv()[2] < 0.4;
 	return (
 		<Stack>
 			<Grid bg={color} borderRadius={20} pt={3} pb={5} px={6} gap={3} color={isDark ? 'white' : 'black'} flexWrap="wrap">
