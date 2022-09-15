@@ -23,7 +23,18 @@ const Home: NextPage<Confessions> = ({ confessions }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <ConfessionsContainer confessionsArray={confessions} />
+        {
+          !confessions.length ? (
+            <div style={{ 
+              textAlign: "center",
+              marginTop: "1.5rem"
+            }}>
+              No confessions at the moment.
+            </div>
+          ) : (
+            <ConfessionsContainer confessionsArray={confessions} />
+          )
+        }
       </div>
     </div>
   );
