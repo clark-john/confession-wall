@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { Flex, Box, Link as ChakraLink } from "@chakra-ui/react";
+import { Flex, Box, Link as ChakraLink, Button } from "@chakra-ui/react";
+import { FaEnvelope } from 'react-icons/fa';
 
 const About: NextPage = () => {
   return (
@@ -22,9 +23,13 @@ const About: NextPage = () => {
             </Box>
           </Box>
           <div style={{marginBottom: "2rem"}}>
-            Email: {' '}
             <ChakraLink href="mailto:daprogrammer1@gmail.com" isExternal>
-              Clark
+              <Button>
+                <Flex alignItems="center" gap={2}>
+                  <FaEnvelope />
+                  Email Me   
+                </Flex>
+              </Button>
             </ChakraLink>
           </div>
           <div>

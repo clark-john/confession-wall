@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from 'next/head';
+import Link from 'next/link';
 import { Button, Flex, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
@@ -11,11 +12,11 @@ const welcome: NextPage = () => {
         <title>Welcome</title>
       </Head>
       <Box fontWeight='bold'>Welcome to Confession Wall</Box>
-      <Button onClick={() => router.push("/home")}>Create yours now</Button> 
-{/*      <Box color='red' mt={14}>
-        Notice: Unfinished. May not work as expected
-      </Box>     
-*/}    
+      <Link href="/home">
+        <Button>
+          Create yours now
+        </Button>         
+      </Link>
     </Flex>
   );
 };

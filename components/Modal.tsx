@@ -37,11 +37,12 @@ export const ConfessionModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           initialValues={{
             title: "",
             content: "",
-            withWebsite: false,
+            withWebsite,
             websiteName: "",
             websiteLink: ""
           }}
           onSubmit={async values => {
+            alert(JSON.stringify(values, null, 2));
             setSubmitting(x => x = true);
             await axios({
               url: "api/create",
@@ -56,7 +57,7 @@ export const ConfessionModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             document.location.reload();
           }
         }>
-          {({ handleSubmit, errors, touched }) => (
+          {({ handleSubmit, errors, touched, values }) => (
             <form onSubmit={handleSubmit}>
               <ModalHeader fontSize={24} fontWeight="bolder">
                 Create Confession
@@ -111,13 +112,16 @@ export const ConfessionModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                   <Field
                     as={Checkbox}
                     isChecked={withWebsite}
-                    onChange={() =>
-                      // @ts-ignore
-                      toggleWithWebsite(() => (withWebsite = !withWebsite))
-                    }
                     name="withWebsite"
+                    type="checkbox"
+                    onChange={() => {
+                      values.withWebsite = !values.withWebsite;
+                      // ignore error
+                      // @ts-ignore
+                      toggleWithWebsite(withWebsite = !withWebsite);
+                    }}
                   >
-                    With website?
+                    With website? { values.withWebsite }
                   </Field>
                   <Stack spacing={4}>
                     <FormControl isInvalid={!!errors.websiteName}>

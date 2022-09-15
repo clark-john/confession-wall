@@ -55,7 +55,7 @@ const Navbar = () => {
             router.pathname === "/about" || isWelcomePage(router.pathname)
               ? "hidden"
               : ""
-          }
+          } 
           px={30}
         >
           Create
