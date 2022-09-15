@@ -5,14 +5,13 @@ import chroma from 'chroma-js';
 import { ConfessionData } from 'utils/interfaces';
 
 export const Confession: React.FC<ConfessionData> = ({ title, content, color, withWebsite, websiteLink, websiteName }) => {
-	const isDark = chroma(color).hsv()[2] < 0.4;
+	const isDark = chroma(color).hsl()[2] < 0.42;
 	return (
 		<Stack>
 			<Grid bg={color} borderRadius={20} pt={3} pb={5} px={6} gap={3} color={isDark ? 'white' : 'black'} flexWrap="wrap">
 				<Box pt={2} fontSize='1.5rem'> {title} </Box>
 				<Box>
 					{content} {' '}
-					{isDark.toString()}
 				</Box>
 				<Flex // @ts-ignore
 					visibility={!withWebsite ? "hidden" : ""}
