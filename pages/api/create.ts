@@ -1,8 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { ConfessionData } from 'utils/interfaces'
-import { autoIncrement } from 'utils/autoIncrement'
-import prisma from 'lib/prisma'
-import chroma from 'chroma-js'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { ConfessionData } from 'utils/interfaces';
+import { autoIncrement } from 'utils/autoIncrement';
+import prisma from 'lib/prisma';
+import chroma from 'chroma-js';
 
 export default async function handler(
   req: NextApiRequest,
@@ -15,7 +15,7 @@ export default async function handler(
       withWebsite,
       websiteName,
       websiteLink
-    }: ConfessionData = req.body
+    }: ConfessionData = req.body;
     await prisma.confession.create({
       data: {
         id: await autoIncrement(prisma),
@@ -26,10 +26,10 @@ export default async function handler(
         websiteName,
         websiteLink   
       }
-    })
-    res.status(200).send("OK")
+    });
+    res.status(200).json(JSON.stringify({ statusText: "OK" }));
   } catch(e) {
-    throw e
-    // res.status(400).send("Bad request")
+    throw e;
+    // res.status(400).send("Error")
   }
 }

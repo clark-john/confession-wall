@@ -14,12 +14,14 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@prisma/client": "^4.1.1",
+    "axios": "^0.27.2",
     "chroma-js": "^2.4.2",
     "formik": "^2.2.9",
     "framer-motion": "^7.0.0",
     "next": "^12.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/chroma-js": "^2.1.4",

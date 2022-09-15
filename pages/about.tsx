@@ -1,7 +1,7 @@
-import type { NextPage } from "next"
-import Head from "next/head"
-import Link from "next/link"
-import { Flex, Box } from "@chakra-ui/react"
+import type { NextPage } from "next";
+import Head from "next/head";
+import Link from "next/link";
+import { Flex, Box, Link as ChakraLink } from "@chakra-ui/react";
 
 const About: NextPage = () => {
   return (
@@ -17,13 +17,15 @@ const About: NextPage = () => {
           <Box mt="10px" mb="3rem">
             <Box>
               <li>Prisma</li>
-              <li>Vite</li>
-              <li>SCSS</li>
-              <li>Vue</li>
+              <li>Next</li>
+              <li>Chakra UI</li>
             </Box>
           </Box>
           <div style={{marginBottom: "2rem"}}>
-            Email: <a href="mailto:daprogrammer1@gmail.com">Clark</a>
+            Email: {' '}
+            <ChakraLink href="mailto:daprogrammer1@gmail.com" isExternal>
+              Clark
+            </ChakraLink>
           </div>
           <div>
             Back to 
@@ -45,7 +47,7 @@ const About: NextPage = () => {
         </Box>
       </Box>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

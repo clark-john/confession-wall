@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -16,17 +16,20 @@ import {
   FormErrorMessage,
   Input,
   Textarea,
+  Spinner,
   Checkbox,
-} from "@chakra-ui/react"
-import { Formik, Field } from "formik"
-import { isSpacesOnly } from "utils/isSpacesOnly"
+} from "@chakra-ui/react";
+import { Formik, Field } from "formik";
+import { isSpacesOnly } from "utils/isSpacesOnly";
+import axios from 'axios';
 
 // @ts-ignore
-export const ConfessionModal = props => {
-  const [withWebsite, toggleWithWebsite] = useState<boolean>(false)
+export const ConfessionModal: React.FC<any> = ({ isOpen, onClose }) => {
+  const [withWebsite, toggleWithWebsite] = useState<boolean>(false);
+  const [isSubmitting, setSubmitting] = useState<boolean>(false);
 
   return (
-    <Modal isOpen={props.isOpen} onClose={props.onClose}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
         <Formik
@@ -37,18 +40,21 @@ export const ConfessionModal = props => {
             websiteName: "",
             websiteLink: ""
           }}
-          onSubmit={async (values) => {
-            await fetch("/api/create", {
+          onSubmit={async values => {
+            setSubmitting(x => x = true);
+            const res = await axios({
+              url: "http://localhost:3000/api/create",
               method: "POST",
               headers: {
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify(values)
-            })
-            props.onClose()
-            document.location.reload()
-          }}
-        >
+              data: JSON.stringify(values)
+            });
+            setSubmitting(x => x = false);
+            onClose();
+            document.location.reload();
+          }
+        }>
           {({ handleSubmit, errors, touched }) => (
             <form onSubmit={handleSubmit}>
               <ModalHeader fontSize={24} fontWeight="bolder">
@@ -68,13 +74,13 @@ export const ConfessionModal = props => {
                         placeholder="Title" 
                         type="text"
                         validate={(value: string) => {
-                          let error
+                          let error;
                           if (value === "") {
-                            error = "Title is required"
+                            error = "Title is required";
                           } else if (isSpacesOnly(value)) {
-                            error = "Cannot contain only spaces"
+                            error = "Cannot contain only spaces";
                           }
-                          return error
+                          return error;
                         }} 
                       /> 
                       <FormErrorMessage>{errors.title}</FormErrorMessage>
@@ -89,13 +95,13 @@ export const ConfessionModal = props => {
                         placeholder="Content"
                         name="content"
                         validate={(value: string) => {
-                          let error
+                          let error;
                           if (value === "") {
-                            error = "Content is required"
+                            error = "Content is required";
                           } else if (isSpacesOnly(value)) {
-                            error = "Cannot contain only spaces"
+                            error = "Cannot contain only spaces";
                           }
-                          return error
+                          return error;
                         }}
                       />
                       <FormErrorMessage>{errors.content}</FormErrorMessage>
@@ -124,15 +130,15 @@ export const ConfessionModal = props => {
                         isDisabled={!withWebsite}
                         name="websiteName"
                         validate={(value: string) => {
-                          let error
+                          let error;
                           if (withWebsite) {
                             if (value === "") {
-                              error = "Website name is required"
+                              error = "Website name is required";
                             } else if (isSpacesOnly(value)) {
-                              error = "Cannot contain only spaces"
+                              error = "Cannot contain only spaces";
                             }                            
                           }
-                          return error
+                          return error;
                         }} 
                       />
                       <FormErrorMessage>{errors.websiteName}</FormErrorMessage>
@@ -148,15 +154,15 @@ export const ConfessionModal = props => {
                         isDisabled={!withWebsite}
                         name='websiteLink'
                         validate={(value: string) => {
-                          let error
+                          let error;
                           if (withWebsite) {
                             if (value === "") {
-                              error = "Website link is required"
+                              error = "Website link is required";
                             } else if (isSpacesOnly(value)) {
-                              error = "Cannot contain only spaces"
+                              error = "Cannot contain only spaces";
                             }                            
                           }
-                          return error
+                          return error;
                         }} 
                       />
                       <FormErrorMessage>{errors.websiteLink}</FormErrorMessage>
@@ -165,12 +171,17 @@ export const ConfessionModal = props => {
                 </Flex>
               </ModalBody>
               <ModalFooter>
-                <Button type="submit">Submit</Button>
+                <Button type="submit">
+                  <Flex gap={2} alignItems='center'>
+                    {isSubmitting ? <Spinner size='sm' /> : null}
+                    {isSubmitting ? "Submitting" : "Submit"}
+                  </Flex>
+                </Button>
               </ModalFooter>
             </form>
           )}
         </Formik>
       </ModalContent>
     </Modal>
-  )
-}
+  );
+};

@@ -1,17 +1,20 @@
-import type { NextPage } from "next"
-import { GetStaticProps } from 'next'
-import Head from "next/head"
-import prisma from 'lib/prisma'
-import { ConfessionsContainer } from 'components/ConfessionsContainer'
+import type { NextPage } from "next";
+import { GetServerSideProps } from 'next';
+import Head from "next/head";
+import prisma from 'lib/prisma';
+import { ConfessionsContainer } from 'components/ConfessionsContainer';
+import { ConfessionData as Confession } from 'utils/interfaces';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const confessions = await prisma.confession.findMany()
+export const getServerSideProps: GetServerSideProps = async () => {
+  const confessions = await prisma.confession.findMany();
   return {
     props: { confessions }
-  }
-}
+  };
+};
 
-const Home: NextPage = (props: any) => {
+type Confessions = { confessions: Array<Confession> };
+
+const Home: NextPage<Confessions> = ({ confessions }) => {
   return (
     <div>
       <Head>
@@ -20,10 +23,10 @@ const Home: NextPage = (props: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <ConfessionsContainer confessionsArray={props.confessions} />
+        <ConfessionsContainer confessionsArray={confessions} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

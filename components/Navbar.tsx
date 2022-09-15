@@ -1,19 +1,13 @@
-import Link from "next/link"
-import { useRouter } from "next/router"
-import { Box, Button, Flex, useDisclosure } from "@chakra-ui/react"
-import navbar from "styles/navbar.module.scss"
-import { ConfessionModal } from "components/Modal"
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Box, Button, Flex, useDisclosure } from "@chakra-ui/react";
+import navbar from "styles/navbar.module.scss";
+import { ConfessionModal } from "components/Modal";
 
 const Navbar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const router = useRouter()
-  const isWelcomePage = (path: string): boolean => {
-    if (path === "/welcome") {
-      return true
-    } else {
-      return false
-    }
-  }
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+  const isWelcomePage = (path: string): boolean => path === "/welcome";
 
   return (
     <Box>
@@ -53,7 +47,7 @@ const Navbar = () => {
       </Flex>
       <ConfessionModal isOpen={isOpen} onClose={onClose} />
     </Box>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

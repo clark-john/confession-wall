@@ -1,9 +1,9 @@
-import { Confession } from './Confession'
-import { Container, Grid, Box } from '@chakra-ui/react'
+import { Confession } from './Confession';
+import { Container, Grid, Box } from '@chakra-ui/react';
+import React from 'react';
 
-export const ConfessionsContainer = (props: any) => {
-	const confs = props.confessionsArray
-	const confessions = confs.map((conf: any) => {
+export const ConfessionsContainer: React.FC<any> = ({ confessionsArray }) => {
+	const confessions = confessionsArray.map((conf: any) => {
 		return (
 			<div key={conf.id}>
 				<Confession 
@@ -15,8 +15,8 @@ export const ConfessionsContainer = (props: any) => {
 					websiteLink={conf.websiteLink}
 				/> 
 			</div>
-		)
-	})
+		);
+	});
 	return (
 		<Box mt={5}>
 			<Grid 
@@ -27,5 +27,5 @@ export const ConfessionsContainer = (props: any) => {
 				{confessions.reverse()}
 			</Grid>
 		</Box>
-	)
-}
+	);
+};
