@@ -10,7 +10,7 @@ export const Confession: React.FC<ConfessionData> = ({ title, content, color, wi
 		<Stack>
 			<Grid bg={color} borderRadius={20} pt={3} pb={5} px={6} gap={3} color={isDark ? 'white' : 'black'} flexWrap="wrap">
 				<Box pt={2} fontSize='1.5rem'> {title} </Box>
-				<Box>
+				<Box wordBreak='break-all'>
 					{content} {' '}
 				</Box>
 				<Flex // @ts-ignore
