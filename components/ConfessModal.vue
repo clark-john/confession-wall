@@ -93,11 +93,7 @@ function submitForm() {
 				body: JSON.stringify(formValue.value),
 				method: "POST"
 			})
-				.then(({ error }) => {
-					if (error.value) {
-						/* eslint-disable no-console */
-						console.error(error.value);
-					}
+				.then(({ error: _error }) => {
 					isLoading.value = false;
 					emitter("close");
 					window.location.reload();
