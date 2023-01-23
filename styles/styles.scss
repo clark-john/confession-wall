@@ -1,0 +1,38 @@
+@use "animations" as an;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+	background-color: #FFFAEB;
+	font-family: Inter;
+	overflow: scroll;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+// link related
+
+.hover-link {
+  color: #000 !important;
+  @include an.onhover-link(black);
+  text-decoration: none !important;
+}
+
+a {
+	text-decoration: none;
+	&:any-link {
+		color: #000;
+	}
+}
+
+// Scrollbar
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #232323;
+	border-radius: 10px;
+}
