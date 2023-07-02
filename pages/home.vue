@@ -1,7 +1,13 @@
 <script lang="ts" setup>
 import { NSpin } from 'naive-ui';
 
-const { data, pending, error } = useLazyFetch("/api/confessions");
+const { data, pending, error, refresh } = useLazyFetch("/api/confessions");
+
+window.addEventListener("reloadConfessions", () => {
+	refresh().then(() => {
+		console.log("Confessions refreshed");
+	});
+});
 </script>
 
 <template>

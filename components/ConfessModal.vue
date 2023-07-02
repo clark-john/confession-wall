@@ -95,8 +95,8 @@ function submitForm() {
 			})
 				.then(({ error: _error }) => {
 					isLoading.value = false;
+					window.dispatchEvent(new Event("reloadConfessions"));
 					emitter("close");
-					window.location.reload();
 				});
 		}
 	});
